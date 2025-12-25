@@ -56,7 +56,19 @@
   animation: scrollBg 120s linear infinite;
   z-index: -1;
 }
+/* Optional: fallback if image fails to load */
+#splash::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--navy);
+  z-index: -2;
+}
 
+    
 @keyframes scrollBg {
   0% {
     transform: translateX(0);
