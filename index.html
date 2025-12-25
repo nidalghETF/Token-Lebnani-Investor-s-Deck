@@ -1,3 +1,5 @@
+<div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
     }
 
     body {
-      font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--navy);
       color: var(--off-white);
       line-height: 1.6;
@@ -39,7 +41,6 @@
       align-items: center;
       background-color: var(--navy);
       z-index: 1000;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
     }
 
     #splash img {
@@ -93,20 +94,13 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
 
-    #enter-btn:active {
-      transform: scale(0.98);
-    }
-
     /* Main Content */
     #main-content {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      display: none;
     }
 
     #main-content.active {
-      opacity: 1;
-      visibility: visible;
+      display: block;
     }
 
     .section {
@@ -114,7 +108,7 @@
       border-top: 1px solid rgba(230, 241, 255, 0.1);
     }
 
-    .section:first-child {
+    .section:first-of-type {
       border-top: none;
     }
 
@@ -123,14 +117,11 @@
       margin: 0 auto;
     }
 
-    h1, h2, h3, h4 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
     h1 {
       font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
 
     @media (min-width: 768px) {
@@ -141,8 +132,10 @@
 
     h2 {
       font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 2rem;
       color: var(--gold);
+      line-height: 1.2;
     }
 
     @media (min-width: 768px) {
@@ -153,32 +146,27 @@
 
     h3 {
       font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 1rem;
       color: var(--gold);
     }
 
-    p, li {
+    p {
       font-size: 1.1rem;
       margin-bottom: 1rem;
       opacity: 0.9;
     }
 
     @media (min-width: 768px) {
-      p, li {
+      p {
         font-size: 1.25rem;
       }
     }
 
-    .hero-text {
+    .hero-subtitle {
       font-size: 1.5rem;
-      margin-bottom: 3rem;
       opacity: 0.9;
-    }
-
-    @media (min-width: 768px) {
-      .hero-text {
-        font-size: 1.8rem;
-      }
+      margin-bottom: 3rem;
     }
 
     .quote {
@@ -197,15 +185,16 @@
     .bullet-list li {
       display: flex;
       margin-bottom: 1rem;
+      align-items: flex-start;
     }
 
     .bullet-list li::before {
       content: "•";
       color: var(--gold);
       font-weight: bold;
-      display: inline-block;
-      width: 1.2rem;
+      font-size: 1.4rem;
       margin-right: 0.8rem;
+      margin-top: 0.2rem;
     }
 
     .card-grid {
@@ -250,6 +239,53 @@
       margin-top: 0.25rem;
     }
 
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .roadmap-item, .risk-item {
+      background-color: var(--navy);
+      border: 1px solid rgba(230, 241, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .allocation-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .allocation-item {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .allocation-pct {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      min-width: 120px;
+    }
+
+    @media (min-width: 768px) {
+      .allocation-pct {
+        margin-bottom: 0;
+        margin-right: 1rem;
+      }
+    }
+
     .team-list {
       margin-top: 1.5rem;
     }
@@ -269,48 +305,13 @@
     .team-role {
       font-weight: 700;
       margin-right: 1rem;
-      min-width: 180px;
+      min-width: 200px;
     }
 
     .footer-note {
       font-style: italic;
       margin-top: 2rem;
       opacity: 0.8;
-    }
-
-    .allocation-row {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .allocation-row {
-        flex-direction: row;
-        align-items: center;
-      }
-    }
-
-    .allocation-label {
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .allocation-label {
-        width: 25%;
-        margin-bottom: 0;
-      }
-    }
-
-    .allocation-desc {
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .allocation-desc {
-        width: 75%;
-      }
     }
   </style>
 </head>
@@ -328,8 +329,8 @@
     <section class="section">
       <div class="container">
         <h1>TOKEN LEBNANI</h1>
-        <h2 class="hero-text">The Regulated Path to Fractional Real Estate</h2>
-        <p class="hero-text">Unlocking Lebanese & MENA Liquidity via ADGM</p>
+        <p class="hero-subtitle">The Regulated Path to Fractional Real Estate</p>
+        <p class="hero-subtitle">Unlocking Lebanese & MENA Liquidity via ADGM</p>
         <p class="quote">
           "Good morning. I am Nidal Gharzeddine, founder of Token Lebnani. We are here to discuss a specific infrastructure problem: unlocking the vast wealth trapped in Lebanese real estate by bridging it with the regulatory stability of the UAE. Token Lebnani is not just a property marketplace; it is a regulated investment vehicle designed to solve the liquidity crisis for the GCC Diaspora."
         </p>
@@ -386,7 +387,7 @@
         <p>
           "Our target market is precise. We are starting with the Lebanese Diaspora in the GCC—a demographic that understands the value of Lebanese real estate but demands the regulatory safety of the UAE. This is a blue ocean. While there are many crowdfunding platforms globally, none are structured specifically to navigate the legal complexities of Lebanon while sitting inside the ADGM regulatory perimeter. We are capturing the demand for 'Safe Haven' real assets."
         </p>
-        <div>
+        <div class="card" style="margin-top: 2rem;">
           <h3>Total Addressable Market (TAM):</h3>
           <p>Lebanese Diaspora Wealth ($150B+).</p>
           <h3 class="mt-4">Serviceable Market (SAM):</h3>
@@ -435,7 +436,7 @@
         <p>
           "This is our most strategic slide. Our competitors often burn millions just to get licensed. We didn't. We engineered our model to fit the ADGM 'Category 4: Arranging' license. By remaining non-custodial and enforcing a 2-year lock-up on tokens via smart contracts, we avoid the heavy capital requirements of Custody and Exchange licenses. This allows us to launch lean, move fast, and pass those savings on to our investors."
         </p>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+        <div class="two-col">
           <div>
             <h3 style="color: var(--gold); margin-bottom: 1rem;">The Standard Model:</h3>
             <p><strong>Custody License:</strong> Requires $4,000,000 Capital.</p>
@@ -443,7 +444,7 @@
           </div>
           <div>
             <h3 style="color: var(--gold); margin-bottom: 1rem;">The Token Lebnani Model:</h3>
-            <p><strong>Category 4 (Arranging):</strong> Requires only <span style="color: var(--gold); font-weight: bold;">$10,000</span> Capital.</p>
+            <p><strong>Category 4 (Arranging):</strong> Requires only <span style="color: var(--gold);"> $10,000 </span> Capital.</p>
             <p><strong>Non-Custodial (Option A):</strong> Investors hold keys. Zero counterparty risk.</p>
             <p><strong>2-Year Smart Contract Lock-Up:</strong> Enforces 'Primary Market' status, avoiding Exchange regulation.</p>
           </div>
@@ -458,7 +459,7 @@
         <p>
           "We are not re-inventing the wheel. We partner with Digishares, a market leader in white-label tokenization, ensuring our tech is bank-grade and secure from Day 1. Operationally, we stay out of the property management business. We hire independent contractors to fix toilets and collect rent. This keeps us focused on the platform and technology, not on plumbing. Crucially, our 'Ring-Fencing' ensures that if one asset underperforms, it is legally isolated. The platform remains safe."
         </p>
-        <div>
+        <div class="card" style="margin-top: 2rem;">
           <h3>Tech Partner: Digishares Standard White-Label Solution.</h3>
           <p style="margin-left: 1.5rem; margin-top: 0.5rem;"><em>Features:</em> Issuance Platform, Investor Dashboard, Integrated AML/KYC.</p>
           <h3 class="mt-4">Risk Isolation:</h3>
@@ -476,7 +477,7 @@
         <p>
           "We generate revenue through two primary streams: an upfront fee for capital raising and a recurring management fee tied to the property's performance. We are taking a phased approach. In Phase 1, inside the ADGM Sandbox, we focus strictly on primary issuance. We are proving the model. In Phase 2, we unlock liquidity by partnering with established Multilateral Trading Facilities (MTFs) to allow secondary trading, without becoming an exchange ourselves."
         </p>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+        <div class="two-col">
           <div>
             <h3 style="color: var(--gold); margin-bottom: 1rem;">Revenue Streams:</h3>
             <p><strong>1. Issuance Fees:</strong> Percentage of funds raised on primary offerings.</p>
@@ -499,16 +500,16 @@
           "Our roadmap is disciplined. Year 1 is about 'Proving It'—getting into the Sandbox and successfully deploying capital into Lebanese assets. By Year 2, we scale horizontally into Egypt, a mega-market with similar liquidity issues, and vertically into SME equity. By Year 3, we transition from a Sandbox entity to a fully licensed Category 4 firm with full secondary market liquidity."
         </p>
         <div style="margin-top: 2rem;">
-          <div class="card" style="margin-bottom: 1rem;">
-            <h3 style="color: var(--gold);">Year 1:</h3>
+          <div class="roadmap-item">
+            <h3>Year 1:</h3>
             <p>ADGM Sandbox Entry. Launch of MVP (Lebanese Real Estate). Enforcement of 2-Year Lock-Up.</p>
           </div>
-          <div class="card" style="margin-bottom: 1rem;">
-            <h3 style="color: var(--gold);">Year 2:</h3>
+          <div class="roadmap-item">
+            <h3>Year 2:</h3>
             <p>Horizontal Expansion (Entry into Egypt). Vertical Expansion (Tokenizing SME Equity).</p>
           </div>
-          <div class="card">
-            <h3 style="color: var(--gold);">Year 3:</h3>
+          <div class="roadmap-item">
+            <h3>Year 3:</h3>
             <p>Full Category 4 License. Activation of full Secondary Market Trading.</p>
           </div>
         </div>
@@ -523,12 +524,18 @@
           "We have preempted the major risks. Legally, we are securing a formal opinion from a top-tier Lebanese firm to ensure the tokens are enforceable under local law. Operationally, we have partnered with Waystone, one of the world's leading compliance firms, to act as our MLRO. This ensures we never fail a regulatory audit. Regarding market risk, our 2-year lock-up is actually a feature, not a bug. It aligns the investor with the long-term performance of the real estate, rather than short-term crypto speculation."
         </p>
         <div style="margin-top: 2rem;">
-          <h3>Legal Risk:</h3>
-          <p>Ring-fenced SPVs ensure liability is contained. Legal Opinion from Tier-1 Lebanese Law Firm confirms token enforceability.</p>
-          <h3 class="mt-4">Operational Risk:</h3>
-          <p>Outsourced MLRO (Waystone) ensures 100% AML/CFT compliance from Day 1.</p>
-          <h3 class="mt-4">Market Risk:</h3>
-          <p>2-Year Lock-Up prevents panic selling and ensures investor commitment to the underlying asset fundamentals.</p>
+          <div class="risk-item">
+            <h3>Legal Risk:</h3>
+            <p>Ring-fenced SPVs ensure liability is contained. Legal Opinion from Tier-1 Lebanese Law Firm confirms token enforceability.</p>
+          </div>
+          <div class="risk-item">
+            <h3>Operational Risk:</h3>
+            <p>Outsourced MLRO (Waystone) ensures 100% AML/CFT compliance from Day 1.</p>
+          </div>
+          <div class="risk-item">
+            <h3>Market Risk:</h3>
+            <p>2-Year Lock-Up prevents panic selling and ensures investor commitment to the underlying asset fundamentals.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -542,22 +549,22 @@
         </p>
         <div style="margin-top: 2rem;">
           <h3>Seeking: $1,000,000 (Seed Round)</h3>
-          <p style="margin-bottom: 1.5rem;"><strong>Condition:</strong> Contingent upon receipt of ADGM Sandbox Invitation</p>
-          <div class="allocation-row">
-            <div class="allocation-label">40% ($400k):</div>
-            <div class="allocation-desc">Licensing & Legal Costs (ADGM, Lebanese Opinions).</div>
+          <p><strong>Condition:</strong> Contingent upon receipt of ADGM Sandbox Invitation</p>
+          <div class="allocation-item">
+            <div class="allocation-pct">40% ($400k):</div>
+            <div>Licensing & Legal Costs (ADGM, Lebanese Opinions).</div>
           </div>
-          <div class="allocation-row">
-            <div class="allocation-label">30% ($300k):</div>
-            <div class="allocation-desc">Talent Acquisition (Full-time SEO, CTO).</div>
+          <div class="allocation-item">
+            <div class="allocation-pct">30% ($300k):</div>
+            <div>Talent Acquisition (Full-time SEO, CTO).</div>
           </div>
-          <div class="allocation-row">
-            <div class="allocation-label">20% ($200k):</div>
-            <div class="allocation-desc">Technology Integration (Digishares Customization).</div>
+          <div class="allocation-item">
+            <div class="allocation-pct">20% ($200k):</div>
+            <div>Technology Integration (Digishares Customization).</div>
           </div>
-          <div class="allocation-row">
-            <div class="allocation-label">10% ($100k):</div>
-            <div class="allocation-desc">Marketing & Business Development.</div>
+          <div class="allocation-item">
+            <div class="allocation-pct">10% ($100k):</div>
+            <div>Marketing & Business Development.</div>
           </div>
         </div>
       </div>
@@ -599,16 +606,8 @@
 
   <script>
     document.getElementById('enter-btn').addEventListener('click', function() {
-      const splash = document.getElementById('splash');
-      const main = document.getElementById('main-content');
-      
-      splash.style.opacity = '0';
-      splash.style.visibility = 'hidden';
-      
-      setTimeout(() => {
-        splash.style.display = 'none';
-        main.classList.add('active');
-      }, 500);
+      document.getElementById('splash').style.display = 'none';
+      document.getElementById('main-content').classList.add('active');
     });
   </script>
 </body>
