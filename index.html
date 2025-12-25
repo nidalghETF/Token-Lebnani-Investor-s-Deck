@@ -28,20 +28,43 @@
       overflow-x: hidden;
     }
 
-    /* Splash Screen */
-    #splash {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--navy);
-      z-index: 1000;
-    }
+    /* Animated background for splash only */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+#splash::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: url('BKground.png');
+  background-size: 50% 100%;
+  background-repeat: repeat-x;
+  animation: scrollBg 120s linear infinite;
+  z-index: -1;
+}
+
+@keyframes scrollBg {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
     #splash img {
       width: 450px;
