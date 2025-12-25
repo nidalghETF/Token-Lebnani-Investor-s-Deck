@@ -1,0 +1,421 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
+const App = () => {
+  const [showMainContent, setShowMainContent] = useState(false);
+
+  if (!showMainContent) {
+    return (
+      <div className="min-h-screen bg-[#0a192f] flex flex-col items-center justify-center p-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center"
+        >
+          <img 
+            src="Blu Logo.png" 
+            alt="Token Lebnani Logo" 
+            className="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8"
+          />
+          <motion.h1 
+            className="text-3xl md:text-5xl font-bold text-[#e6f1ff] mb-12 tracking-wide"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            TOKEN LEBNANI INVESTOR PORTAL
+          </motion.h1>
+          <motion.button
+            onClick={() => setShowMainContent(true)}
+            className="px-12 py-4 bg-[#ffb703] text-[#0a192f] font-bold text-lg rounded-full hover:bg-[#ffd166] transition-colors duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            ENTER
+          </motion.button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a192f] text-[#e6f1ff] font-sans">
+      {/* Hero Header */}
+      <section className="py-20 px-6 md:px-12 lg:px-24">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">TOKEN LEBNANI</h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#ffb703] mb-4">The Regulated Path to Fractional Real Estate</h2>
+          <p className="text-xl md:text-2xl opacity-90">Unlocking Lebanese & MENA Liquidity via ADGM</p>
+          <div className="mt-8 pt-8 border-t border-[#e6f1ff] border-opacity-20 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl italic">
+              "Good morning. I am Nidal Gharzeddine, founder of Token Lebnani. We are here to discuss a specific infrastructure problem: unlocking the vast wealth trapped in Lebanese real estate by bridging it with the regulatory stability of the UAE. Token Lebnani is not just a property marketplace; it is a regulated investment vehicle designed to solve the liquidity crisis for the GCC Diaspora."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Problem */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">The $150 Billion Liquidity Trap</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "Let’s look at the market dynamics. The Lebanese Diaspora holds over $150 billion in wealth, much of it sitting in low-yield accounts in the West because the home market is frozen. We have a 'Liquidity Trap.' High-quality assets exist in Lebanon, but the mechanism to move money in, hold title safely, and generate returns is broken. For an investor in Dubai or Riyadh, the fear of legal disputes and capital controls is a barrier too high to cross."
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="flex items-start">
+              <span className="text-[#ffb703] font-bold mr-4">•</span>
+              <span className="text-lg"><strong>Trapped Assets:</strong> High-quality Lebanese real estate is fundamentally illiquid. Selling takes months or years due to capital controls and market fragmentation.</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-[#ffb703] font-bold mr-4">•</span>
+              <span className="text-lg"><strong>The Diaspora Dilemma:</strong> The Diaspora holds an estimated $150 Billion+ in wealth but faces immense friction investing back home due to legal complexity and a deficit of trust.</span>
+            </div>
+            <div className="flex items-start">
+              <span className="text-[#ffb703] font-bold mr-4">•</span>
+              <span className="text-lg"><strong>High Barriers:</strong> High entry costs, fragmented ownership structures, and opaque transfer processes prevent fractional investment.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Solution */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">A Regulated Bridge for Real Estate</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "Our solution is a 'Regulated Bridge.' We take a physical asset in Lebanon and place it inside a legal structure in the ADGM. By tokenizing the equity of this structure, we offer a digital security that represents real property. Crucially, we are non-custodial. We do not hold the investor's keys or funds. The investor owns the token outright in their own wallet, secured by the blockchain. This provides the trust layer that the market is currently missing."
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#ffb703]">Tokenization</h3>
+              <p className="text-lg">We convert physical property rights into digital, tradeable security tokens.</p>
+            </div>
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#ffb703]">The ADGM Wrapper</h3>
+              <p className="text-lg">Assets are legally wrapped in the certainty of Abu Dhabi Global Market (ADGM) law.</p>
+            </div>
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#ffb703]">Fractional Access</h3>
+              <p className="text-lg">Lower entry barriers allow secure investment with minimal capital.</p>
+            </div>
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#ffb703]">Non-Custodial Security</h3>
+              <p className="text-lg">Investors hold their own assets in private wallets. We eliminate counterparty risk.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Market Opportunity */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Targeting the Capital Flight & Safe Havens</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "Our target market is precise. We are starting with the Lebanese Diaspora in the GCC—a demographic that understands the value of Lebanese real estate but demands the regulatory safety of the UAE. This is a blue ocean. While there are many crowdfunding platforms globally, none are structured specifically to navigate the legal complexities of Lebanon while sitting inside the ADGM regulatory perimeter. We are capturing the demand for 'Safe Haven' real assets."
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Total Addressable Market (TAM):</h3>
+              <p className="text-lg">Lebanese Diaspora Wealth ($150B+)</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Serviceable Market (SAM):</h3>
+              <p className="text-lg">GCC-based Lebanese & Regional HNWIs seeking asset diversification outside of banking sectors.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">The Gap:</h3>
+              <p className="text-lg">No current platform offers ADGM-regulated, non-custodial access to this specific asset class.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Product */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">3-Step Fractionalization Process</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "The mechanics are straightforward. We identify a high-yield asset. We place it into a single-purpose entity to isolate risk. We then issue tokens that represent shares in that entity. When you buy a token, you aren't just buying a digital file; you are buying the legal right to the income generated by that building. This process turns a brick-and-mortar asset into a liquid digital security."
+            </p>
+          </div>
+          <div className="space-y-8">
+            <div className="flex flex-col md:flex-row items-start">
+              <div className="flex-shrink-0 w-16 h-16 bg-[#ffb703] text-[#0a192f] rounded-full flex items-center justify-center text-2xl font-bold mr-6 mb-4 md:mb-0">1</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2">Acquisition</h3>
+                <p className="text-lg">A property is acquired by a dedicated Lebanese Special Purpose Vehicle (SPV).</p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-start">
+              <div className="flex-shrink-0 w-16 h-16 bg-[#ffb703] text-[#0a192f] rounded-full flex items-center justify-center text-2xl font-bold mr-6 mb-4 md:mb-0">2</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2">Tokenization</h3>
+                <p className="text-lg">The ADGM Holding Company issues digital tokens representing the equity of that SPV.</p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-start">
+              <div className="flex-shrink-0 w-16 h-16 bg-[#ffb703] text-[#0a192f] rounded-full flex items-center justify-center text-2xl font-bold mr-6 mb-4 md:mb-0">3</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2">Distribution</h3>
+                <p className="text-lg">Investors purchase tokens via a secure dashboard, receiving legal rights to the property's income and capital appreciation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regulatory Strategy */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Regulatory Engineering for Capital Efficiency</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "This is our most strategic slide. Our competitors often burn millions just to get licensed. We didn't. We engineered our model to fit the ADGM 'Category 4: Arranging' license. By remaining non-custodial and enforcing a 2-year lock-up on tokens via smart contracts, we avoid the heavy capital requirements of Custody and Exchange licenses. This allows us to launch lean, move fast, and pass those savings on to our investors."
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#ffb703]">The Standard Model:</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-lg"><strong>Custody License:</strong> Requires $4,000,000 Capital.</p>
+                </div>
+                <div>
+                  <p className="text-lg"><strong>Exchange (MTF) License:</strong> Requires $140,000 Capital.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#ffb703]">The Token Lebnani Model:</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-lg"><strong>Category 4 (Arranging):</strong> Requires only <span className="text-[#ffb703] font-bold">$10,000</span> Capital.</p>
+                </div>
+                <div>
+                  <p className="text-lg"><strong>Non-Custodial (Option A):</strong> Investors hold keys. Zero counterparty risk.</p>
+                </div>
+                <div>
+                  <p className="text-lg"><strong>2-Year Smart Contract Lock-Up:</strong> Enforces 'Primary Market' status, avoiding Exchange regulation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology & Operations */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Institutional-Grade Infrastructure</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "We are not re-inventing the wheel. We partner with Digishares, a market leader in white-label tokenization, ensuring our tech is bank-grade and secure from Day 1. Operationally, we stay out of the property management business. We hire independent contractors to fix toilets and collect rent. This keeps us focused on the platform and technology, not on plumbing. Crucially, our 'Ring-Fencing' ensures that if one asset underperforms, it is legally isolated. The platform remains safe."
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Tech Partner: Digishares Standard White-Label Solution.</h3>
+              <div className="ml-6 space-y-2">
+                <p className="text-lg"><em>Features:</em> Issuance Platform, Investor Dashboard, Integrated AML/KYC.</p>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Risk Isolation:</h3>
+              <p className="text-lg">1 Property = 1 SPV. Legal issues in one building cannot contaminate the platform or other assets.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Operations:</h3>
+              <p className="text-lg">Independent Facilities Management Company (FMC) handles all property maintenance and tenant relations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Model */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Phased Approach to Revenue</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "We generate revenue through two primary streams: an upfront fee for capital raising and a recurring management fee tied to the property's performance. We are taking a phased approach. In Phase 1, inside the ADGM Sandbox, we focus strictly on primary issuance. We are proving the model. In Phase 2, we unlock liquidity by partnering with established Multilateral Trading Facilities (MTFs) to allow secondary trading, without becoming an exchange ourselves."
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#ffb703]">Revenue Streams:</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-lg"><strong>1. Issuance Fees:</strong> Percentage of funds raised on primary offerings.</p>
+                </div>
+                <div>
+                  <p className="text-lg"><strong>2. Asset Management Fees:</strong> Annual percentage of Net Operating Income (NOI).</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#ffb703]">Phasing Strategy:</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-lg"><strong>Phase 1 (Sandbox):</strong> Primary Issuance Only. Focus: Compliance & Trust.</p>
+                </div>
+                <div>
+                  <p className="text-lg"><strong>Phase 2 (Expansion):</strong> Introduction of Secondary Market liquidity (via ADGM MTF partners) & Expansion to Egypt.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Path to Execution</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "Our roadmap is disciplined. Year 1 is about 'Proving It'—getting into the Sandbox and successfully deploying capital into Lebanese assets. By Year 2, we scale horizontally into Egypt, a mega-market with similar liquidity issues, and vertically into SME equity. By Year 3, we transition from a Sandbox entity to a fully licensed Category 4 firm with full secondary market liquidity."
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-3 text-[#ffb703]">Year 1:</h3>
+              <p className="text-lg">ADGM Sandbox Entry. Launch of MVP (Lebanese Real Estate). Enforcement of 2-Year Lock-Up.</p>
+            </div>
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-3 text-[#ffb703]">Year 2:</h3>
+              <p className="text-lg">Horizontal Expansion (Entry into Egypt). Vertical Expansion (Tokenizing SME Equity).</p>
+            </div>
+            <div className="bg-[#0a192f] border border-[#e6f1ff] border-opacity-20 p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-3 text-[#ffb703]">Year 3:</h3>
+              <p className="text-lg">Full Category 4 License. Activation of full Secondary Market Trading.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Risk Management */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Mitigated Risks</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "We have preempted the major risks. Legally, we are securing a formal opinion from a top-tier Lebanese firm to ensure the tokens are enforceable under local law. Operationally, we have partnered with Waystone, one of the world's leading compliance firms, to act as our MLRO. This ensures we never fail a regulatory audit. Regarding market risk, our 2-year lock-up is actually a feature, not a bug. It aligns the investor with the long-term performance of the real estate, rather than short-term crypto speculation."
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Legal Risk:</h3>
+              <p className="text-lg">Ring-fenced SPVs ensure liability is contained. Legal Opinion from Tier-1 Lebanese Law Firm confirms token enforceability.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Operational Risk:</h3>
+              <p className="text-lg">Outsourced MLRO (Waystone) ensures 100% AML/CFT compliance from Day 1.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-3">Market Risk:</h3>
+              <p className="text-lg">2-Year Lock-Up prevents panic selling and ensures investor commitment to the underlying asset fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Ask */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Fueling the Bridge</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "We are seeking a $1M Seed round to bridge us to profitability. This raise is conditional on receiving our invitation to the ADGM Sandbox. You will notice 40% is allocated to Legal. This is not an expense; it is an asset. By buying this regulatory approval and legal structuring upfront, we are building a defensive moat that competitors will find very hard to replicate. The rest goes to building the team and refining the tech."
+            </p>
+          </div>
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold mb-4">Seeking: $1,000,000 (Seed Round)</h3>
+            <p className="text-lg mb-4"><strong>Condition:</strong> Contingent upon receipt of ADGM Sandbox Invitation</p>
+          </div>
+          <div className="space-y-4">
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-full md:w-1/3 mb-2 md:mb-0">
+                <p className="text-lg font-bold">40% ($400k):</p>
+              </div>
+              <div className="w-full md:w-2/3">
+                <p className="text-lg">Licensing & Legal Costs (ADGM, Lebanese Opinions).</p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-full md:w-1/3 mb-2 md:mb-0">
+                <p className="text-lg font-bold">30% ($300k):</p>
+              </div>
+              <div className="w-full md:w-2/3">
+                <p className="text-lg">Talent Acquisition (Full-time SEO, CTO).</p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-full md:w-1/3 mb-2 md:mb-0">
+                <p className="text-lg font-bold">20% ($200k):</p>
+              </div>
+              <div className="w-full md:w-2/3">
+                <p className="text-lg">Technology Integration (Digishares Customization).</p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="w-full md:w-1/3 mb-2 md:mb-0">
+                <p className="text-lg font-bold">10% ($100k):</p>
+              </div>
+              <div className="w-full md:w-2/3">
+                <p className="text-lg">Marketing & Business Development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Team */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 border-t border-[#e6f1ff] border-opacity-10 mb-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#ffb703]">Governance & Execution</h2>
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-6">
+              "Finally, execution is everything. I am leading the vision, but we are standing on the shoulders of giants. We have partnered with YazConsult for specialized legal structuring, Dr. Joseph Bu Khair for financial rigor, Waystone for compliance and Digishares for technology. This 'hybrid' model allows us to move with the speed of a startup but operate with the rigor of a bank."
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3 font-bold mb-2 md:mb-0">Nidal Gharzeddine:</div>
+              <div className="w-full md:w-2/3">Founder & Interim SEO. Strategic vision & market execution.</div>
+            </div>
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3 font-bold mb-2 md:mb-0">YazConsult:</div>
+              <div className="w-full md:w-2/3">Legal Advisor & Partner. Specialized legal structuring and advisory.</div>
+            </div>
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3 font-bold mb-2 md:mb-0">Dr. Joseph Bu Khair:</div>
+              <div className="w-full md:w-2/3">Financial & Business Advisor & Partner. Strategic financial guidance and business development.</div>
+            </div>
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3 font-bold mb-2 md:mb-0">Waystone:</div>
+              <div className="w-full md:w-2/3">Compliance & MLRO Partner. Ensuring regulatory 'Fit and Proper' status.</div>
+            </div>
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3 font-bold mb-2 md:mb-0">Digishares:</div>
+              <div className="w-full md:w-2/3">Technology Partner. Providing institutional-grade security and infrastructure.</div>
+            </div>
+          </div>
+          <p className="text-lg mt-8 italic">*(Seeking full-time CTO/Compliance Officer post-funding)*</p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default App;
